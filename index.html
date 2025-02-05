@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="logo-button">
+            <h1 class="logo">FlickPick</h1>
+        </button>
+        <ul class="menu-list">
+            <li class="menu-list-item active">Home</li>
+            <li class="menu-list-item">Movies</li>
+            <li class="menu-list-item">Popular</li>
+            <li class="menu-list-item">TopRated</li>
+            <li class="menu-list-item">All</li>
+        </ul>
+    </div>
+
+
+    <!-- Movie Content -->
+    <div class="container">
+        <div class="content-container">
+
+            <!-- Movie Search -->
+            <div class="movie-search-container">
+                <input type="text" id="movieSearch" class="movie-search" placeholder="Search for movies...">
+            </div>
+
+            <!-- Movie Sections -->
+            <div id="movies-section">
+                <div class="movie-list-container" id="now_playing">
+                    <h1 class="movie-list-title">New Releases</h1>
+                    <div class="movie-list-wrapper">
+                        <div class="movie-list"></div>
+                    </div>
+                </div>
+
+                <div class="movie-list-container" id="top_rated">
+                    <h1 class="movie-list-title">Top Rated</h1>
+                    <div class="movie-list-wrapper">
+                        <div class="movie-list"></div>
+                    </div>
+                </div>
+
+                <div class="movie-list-container" id="popular">
+                    <h1 class="movie-list-title">Popular</h1>
+                    <div class="movie-list-wrapper">
+                        <div class="movie-list"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+    document.querySelector('.logo-button').addEventListener('click', () => {
+        location.reload(); // Refreshes the page
+    });
+</script>
+
+</html>
