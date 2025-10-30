@@ -2,74 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FilmPilot</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="FilmPilot helps you discover top-rated movies, trending picks, and hidden gems with smart filters and sleek design." />
+  <meta name="keywords"
+    content="FilmPilot, movie app, film discovery, top rated movies, popular films, movie filters, smart watchlist" />
+  <meta name="author" content="Kristian Cook" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="FilmPilot" />
+  <meta property="og:description"
+    content="Your smart co-pilot for movie discovery. Explore, filter, and favorite films with ease." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flimpilot.netlify.app/" />
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#1c1c1c" />
+  <link rel="icon" href="filmicons/favicon.ico" type="image/x-icon" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <button id="sidebarToggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+    <button id="closeSidebar" class="close-btn">×</button>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <button class="logo-button">
-            <h1 class="logo">FlickPick</h1>
-        </button>
-        <ul class="menu-list">
-            <li class="menu-list-item active">Home</li>
-            <li class="menu-list-item">Movies</li>
-            <li class="menu-list-item">Popular</li>
-            <li class="menu-list-item">TopRated</li>
-            <li class="menu-list-item">All</li>
-        </ul>
+    <div class="sidebar-icons">
+      <button class="sidebar-icon" onclick="window.open('https://builtbykristian.netlify.app', '_blank')">
+        <i class="fas fa-home"></i>
+      </button>
+      <button class="sidebar-icon" data-category="home"><i class="fas fa-film"></i></button>
+      <button class="sidebar-icon" data-category="popular"><i class="fas fa-fire"></i></button>
+      <button class="sidebar-icon" data-category="top_rated"><i class="fas fa-star"></i></button>
     </div>
 
+    <div class="sidebar-content">
+      <p class="menu-label">🎬 FilmPilot</p>
+      <ul class="menu-list">
+        <li><a href="https://builtbykristian.netlify.app" target="_blank">About Me</a></li>
+        <li><button data-category="home">Home</button></li>
+        <li><button data-category="popular">Popular</button></li>
+        <li><button data-category="top_rated">Top Rated</button></li>
+        <li><button onclick="showFavorites()">Favorites ❤️</button></li>
+      </ul>
 
-    <!-- Movie Content -->
-    <div class="container">
-        <div class="content-container">
+      <p class="menu-label">⭐ Filters</p>
+      <div class="sidebar-star-filter">
+        <label for="starFilter">Minimum Rating</label>
+        <select id="starFilter">
+          <option value="0">All</option>
+          <option value="3.5">⭐ 3.5 & up</option>
+          <option value="4">⭐ 4 & up</option>
+        </select>
 
-            <!-- Movie Search -->
-            <div class="movie-search-container">
-                <input type="text" id="movieSearch" class="movie-search" placeholder="Search for movies...">
-            </div>
+        <p class="menu-label">🎭 Genres</p>
+        <select id="genreFilter">
+          <option value="">All</option>
+        </select>
 
-            <!-- Movie Sections -->
-            <div id="movies-section">
-                <div class="movie-list-container" id="now_playing">
-                    <h1 class="movie-list-title">New Releases</h1>
-                    <div class="movie-list-wrapper">
-                        <div class="movie-list"></div>
-                    </div>
-                </div>
-
-                <div class="movie-list-container" id="top_rated">
-                    <h1 class="movie-list-title">Top Rated</h1>
-                    <div class="movie-list-wrapper">
-                        <div class="movie-list"></div>
-                    </div>
-                </div>
-
-                <div class="movie-list-container" id="popular">
-                    <h1 class="movie-list-title">Popular</h1>
-                    <div class="movie-list-wrapper">
-                        <div class="movie-list"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <p class="menu-label">📅 Year</p>
+        <select id="yearFilter">
+          <option value="">All</option>
+        </select>
+      </div>
     </div>
+  </aside>
 
-    <script src="script.js"></script>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="content-container">
+      <div class="movie-search-container">
+        <input type="text" id="movieSearch" class="movie-search" placeholder="Search for movies..." />
+      </div>
+      <div id="movies-section"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
-<script>
-    document.querySelector('.logo-button').addEventListener('click', () => {
-        location.reload(); // Refreshes the page
-    });
-</script>
 
 </html>

@@ -1,0 +1,88 @@
+# FilmPilot
+
+A sleek, dark-themed movie discovery web app that uses The Movie Database (TMDb) API to help you browse top-rated, popular, and trending films. FilmPilot includes powerful filters, search, favorites, trailers, and recommendations — all in a responsive interface.
+
+---
+
+## Features
+
+- Browse movies by category: Now Playing, Popular, Top Rated, Upcoming
+- Infinite/`Load More` style paging with a friendly load button
+- Search movies by title with instant results
+- Filters for minimum rating, genre and release year
+- Save favorites locally (LocalStorage)
+- Play trailers (YouTube) and view recommended movies
+- Responsive layout with an expandable sidebar
+
+---
+
+## Tech
+- Plain HTML, CSS (custom + Bulma), and vanilla JavaScript
+- TMDb (The Movie Database) API for movie data and videos
+- No build tools required — static site ready to open in a browser
+
+---
+
+## Getting Started
+
+Prerequisites:
+
+- A modern browser (Chrome, Edge, Firefox, Safari)
+- A TMDb API key (free account at https://www.themoviedb.org)
+
+1. Clone or download this repository.
+2. Place your TMDb API key into the project:
+   - Open `script.js` and set the `API_KEY` constant to your TMDb key:
+
+```js
+// in script.js
+const API_KEY = 'YOUR_TMDB_API_KEY_HERE';
+```
+
+3. Serve the folder with any static file server or open `index.html` directly. For a quick local server you can use your editor's Live Server extension or run:
+
+```powershell
+python -m http.server 8000
+```
+
+Then open http://localhost:8000 in your browser.
+
+---
+
+## Configuration
+
+- TMDb language is set to `en-US` in API requests. Modify the `fetch` URL in `script.js` if you want a different language.
+- Favorites are stored in `localStorage` under the key `favorites`.
+
+---
+
+## Usage
+
+- Use the sidebar to switch categories or open filters.
+- Type in the search box to find movies by title.
+- Use the star filter, genre, and year selects to refine results.
+- Click the heart button on a movie card to add/remove favorites.
+- Click "🎬 Trailer" to open a modal with the YouTube trailer (if available).
+
+---
+
+## Contributing
+
+Contributions, issues and feature requests are welcome. For small changes, open a pull request. For larger suggestions, please open an issue first to discuss the change.
+
+---
+
+## Notes & Privacy
+
+- This app stores favorites locally in the browser only — nothing is sent to a server.
+- TMDb API usage is subject to TMDb terms and rate limits. Keep your API key private.
+
+---
+
+## License
+
+This project is provided as-is. Add your preferred license if you plan to share it publicly.
+
+---
+
+💡 **Built by [Kristian](https://builtbykristian.netlify.app)**  
